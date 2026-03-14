@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3760673838330513152}
   - component: {fileID: 9203039368602873718}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Bouncy dude
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class GeoController : MonoBehaviour
 {
+    private SpriteRenderer sr;
     private Rigidbody2D rb;
     string jaroobed = "bankai";
     int counter = 1;
@@ -17,6 +18,7 @@ public class GeoController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         Debug.Log("hasdasd");
     }
@@ -33,18 +35,39 @@ public class GeoController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W)) ;
         transform.position += new Vector3(0, 1, 0);
         */
-    }
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+        
+            sr.color = Color.black;
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            sr.color = Color.red;
+        }
 
+      
+
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            sr.color = Color.cyan;
+        }
+        ;
+       
+       
+    }
+       
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("hit");
-        switch(collision.gameObject.tag)
+        switch (collision.gameObject.tag)
         {
             case "Death":
-                string levelName = SceneManager.GetActiveScene().name;
-                Debug.Log("player has reahed death");
-                SceneManager.LoadScene(levelName);
-                break;
+                {
+                    string levelName = SceneManager.GetActiveScene().name;
+                    Debug.Log("player has reahed death");
+                    SceneManager.LoadScene(levelName);
+                    break;
+                }
 
             case "Finish":
                 {
@@ -52,10 +75,10 @@ public class GeoController : MonoBehaviour
                     break;
                 }
         }
-          private SpriteRenderer sr;
+    }
+         
 
 
-}
 } 
     
           
